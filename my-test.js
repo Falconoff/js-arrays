@@ -1,17 +1,18 @@
-function removeFalsyValues(arr) {
-  // let newArr = [];
-  // arr.map((value) => {
-  //   if (value) {
-  //     newArr.push(value);
-  //   }
-  // });
-
-  return arr.filter((value) => value);
+function getAverage(arr) {
+  if (arr.length < 1) {
+    return 0;
+  }
+  return (
+    Math.round(
+      (arr.reduce((accum, current) => accum + current, 0) / arr.length) * 100
+    ) / 100
+  );
 }
 
-console.log(removeFalsyValues([0, false, 'cat', NaN, true, '']));
-// => [ 'cat', true ]
-console.log(removeFalsyValues([1, 2, 3, 4, 5, 'false']));
-//  => [ 1, 2, 3, 4, 5, 'false' ]
-console.log(removeFalsyValues([false, 0, NaN, '', undefined]));
-//  => [ ]
+getAverage([]);
+// => 0
+getAverage([1, 2, 3]);
+//  => 2
+getAverage([-1, 1, -1, 1]);
+// => 0
+console.log(Math.round(getAverage([2, 3, 3]) * 100) / 100);
