@@ -1,27 +1,17 @@
-function getIntervalArray(start, end) {
-  // const array = [];
-  // for (let i = start; i <= end; i += 1) {
-  //   array.push(i);
-  // }
-  // console.log(array);
+function removeFalsyValues(arr) {
+  // let newArr = [];
+  // arr.map((value) => {
+  //   if (value) {
+  //     newArr.push(value);
+  //   }
+  // });
 
-  const array = [];
-
-  const arrLength = end - start + 1;
-
-  array.length = arrLength;
-  let rez1 = array.fill(start).map((value, index) => value + index);
-
-  console.log(arrLength);
-  // console.log(array);
-  console.log(rez1);
-  console.log(rez2);
-
-  // console.log(Array.from('foo'));
-  // console.log(Array.from(start));
+  return arr.filter((value) => value);
 }
 
-getIntervalArray(1, 6);
-getIntervalArray(-2, 2);
-// getIntervalArray(0, 100);
-// getIntervalArray(3, 3);
+console.log(removeFalsyValues([0, false, 'cat', NaN, true, '']));
+// => [ 'cat', true ]
+console.log(removeFalsyValues([1, 2, 3, 4, 5, 'false']));
+//  => [ 1, 2, 3, 4, 5, 'false' ]
+console.log(removeFalsyValues([false, 0, NaN, '', undefined]));
+//  => [ ]

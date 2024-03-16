@@ -21,18 +21,28 @@
  *    getIntervalArray(3, 3) => [ 3 ]
  */
 function getIntervalArray(start, end) {
+  // ============ 1-st variant ============
+
   // const array = [];
   // for (let i = start; i <= end; i += 1) {
   //   array.push(i);
   // }
 
+  // ============ 2-nd variant ============
+
+  // const array = [];
+  // const arrLength = end - start + 1;
+  // array.length = arrLength;
+  // return array.fill(start).map((value, index) => value + index);
+
+  // ============ 3-rd variant with FROM ============
+
   const array = [];
-
   const arrLength = end - start + 1;
-
   array.length = arrLength;
+  array.fill(start);
 
-  return array.fill(start).map((value, index) => value + index);
+  return Array.from(array, (value, index) => value + index);
 }
 
 /**
@@ -48,8 +58,22 @@ function getIntervalArray(start, end) {
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
-function sumArrays(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function sumArrays(arr1, arr2) {
+  // const summArr = [];
+  const maxLength = Math.max(arr1.length, arr2.length);
+  const toFillArr = arr1.length > arr2.length ? arr2 : arr1;
+
+  const oldLength = toFillArr.length;
+  toFillArr.length = maxLength;
+
+  toFillArr.fill(0, oldLength, maxLength);
+
+  // for (let i = 0; i < maxLength; i += 1) {
+  //   summArr[i] = arr1[i] + arr2[i];
+  // }
+
+  const summArr = arr1.map((num, index) => num + arr2[index]);
+  return summArr;
 }
 
 /**
@@ -64,8 +88,8 @@ function sumArrays(/* arr1, arr2 */) {
  *    findElement(['Array', 'Number', 'string'], 'Date') => -1
  *    findElement([0, 1, 2, 3, 4, 5], 5) => 5
  */
-function findElement(/* arr, value */) {
-  throw new Error('Not implemented');
+function findElement(arr, value) {
+  return arr.indexOf(value);
 }
 
 /**
@@ -82,8 +106,17 @@ function findElement(/* arr, value */) {
  *    findAllOccurrences([ null, undefined, null ], null) => 2
  *    findAllOccurrences([ true, 0, 1, 'true' ], true) => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  let total = 0;
+
+  arr.map((element) => {
+    if (element === item) {
+      total += 1;
+    }
+    return total;
+  });
+
+  return total;
 }
 
 /**
@@ -98,8 +131,8 @@ function findAllOccurrences(/* arr, item */) {
  *    removeFalsyValues([ 1, 2, 3, 4, 5, 'false' ]) => [ 1, 2, 3, 4, 5, 'false' ]
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  return arr.filter((value) => value);
 }
 
 /**
