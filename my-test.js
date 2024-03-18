@@ -1,18 +1,19 @@
-function getAverage(arr) {
-  if (arr.length < 1) {
-    return 0;
-  }
-  return (
-    Math.round(
-      (arr.reduce((accum, current) => accum + current, 0) / arr.length) * 100
-    ) / 100
-  );
+function distinct(arr) {
+  const newSet = new Set();
+
+  arr.forEach((element) => {
+    newSet.add(element);
+  });
+
+  console.log(newSet);
+  console.log(newSet.values());
 }
 
-getAverage([]);
-// => 0
-getAverage([1, 2, 3]);
-//  => 2
-getAverage([-1, 1, -1, 1]);
-// => 0
-console.log(Math.round(getAverage([2, 3, 3]) * 100) / 100);
+console.log(distinct([1, 2, 3, 3, 2, 1]));
+//  => [ 1, 2, 3 ]
+console.log(distinct(['a', 'a', 'a', 'a']));
+//  => [ 'a' ]
+console.log(distinct([1, 1, 2, 2, 3, 3, 4, 4]));
+//  => [ 1, 2, 3, 4]
+console.log(distinct([]));
+//  => []
