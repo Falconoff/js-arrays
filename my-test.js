@@ -1,12 +1,11 @@
 function distinct(arr) {
   const newSet = new Set();
 
-  arr.forEach((element) => {
-    newSet.add(element);
-  });
+  // arr.map((element) => {
+  //   newSet.add(element);
+  // });
 
-  console.log(newSet);
-  console.log(newSet.values());
+  return Array.from(newSet);
 }
 
 console.log(distinct([1, 2, 3, 3, 2, 1]));
