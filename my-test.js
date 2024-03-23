@@ -1,14 +1,8 @@
-function createChunks(arr, chunkSize) {
-  let chunk = [];
-  // for (let i = 0; i < arr.length; i += chunkSize) {
-  //   // chunk = arr.slice(i, i + chunkSize);
-  //   console.log(arr.slice(i, i + chunkSize));
+function generateOdds(len) {
+  let newArr = new Array(len);
 
-  //   chunk.push(arr.slice(i, i + chunkSize));
-  // }
-  // console.log(chunk);
-  // return chunk;
+  console.log(newArr.fill(1).map((value, index) => (value = index * 2 + 1)));
 }
 
-createChunks([1, 2, 3, 4, 5, 6, 7], 3);
-// => [[1, 2, 3], [4, 5, 6], [7]]
+generateOdds(15);
+// => [1, 3, 5, 7, 9]

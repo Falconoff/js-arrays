@@ -9,7 +9,7 @@ function createNDimensionalArray(n, size) {
   //     .map(() => Array(size).fill(0))
   // );
 
-  let x = new Array(size);
+  let newArr = new Array(size).fill(0);
 
   // for (let i = 0; i <= n; i += 1) {
   //   for (let j = 0; j <= n; j += 1) {
@@ -19,7 +19,7 @@ function createNDimensionalArray(n, size) {
 
   let a = Array(size)
     .fill(0)
-    .map((x) => Array(size).fill(0));
+    .map(() => newArr);
 
   console.log(a);
 
@@ -33,8 +33,8 @@ function createNDimensionalArray(n, size) {
 
 createNDimensionalArray(2, 3);
 createNDimensionalArray(3, 2);
-// createNDimensionalArray(4, 2);
-// createNDimensionalArray(4, 4);
+createNDimensionalArray(4, 2);
+createNDimensionalArray(4, 4);
 
 // console.log(
 //   Array(4)

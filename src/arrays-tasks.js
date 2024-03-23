@@ -386,16 +386,18 @@ function calculateBalance(arr) {
  *    createChunks(['a', 'b', 'c', 'd', 'e'], 2) => [['a', 'b'], ['c', 'd'], ['e']]
  *    createChunks([10, 20, 30, 40, 50], 1) => [[10], [20], [30], [40], [50]]
  */
-function createChunks(arr, chunkSize) {
-  const chunk = [];
-  for (let i = 0; i < arr.length; i += chunkSize) {
-    // chunk = arr.slice(i, i + chunkSize);
-    // console.log(arr.slice(i, i + chunkSize));
+function createChunks(/* arr, chunkSize */) {
+  throw new Error('Not implemented');
 
-    chunk.push(arr.slice(i, i + chunkSize));
-  }
-  // console.log(chunk);
-  return chunk;
+  // Function "createChunks" should not use basic loop statements (for, while or forEach)! Please use specialized array methods (map, reduce etc).
+  /* 
+  // const chunk = [];
+  // for (let i = 0; i < arr.length; i += chunkSize) {
+  //   chunk.push(arr.slice(i, i + chunkSize));
+  // }
+
+  // return chunk; 
+  */
 }
 
 /**
@@ -410,8 +412,10 @@ function createChunks(arr, chunkSize) {
  *    generateOdds(2) => [ 1, 3 ]
  *    generateOdds(5) => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  throw new Error('Not implemented');
+function generateOdds(len) {
+  const newArr = new Array(len);
+
+  return newArr.fill(1).map((value, index) => index * 2 + 1);
 }
 
 /**
