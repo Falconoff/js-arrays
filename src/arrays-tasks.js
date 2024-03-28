@@ -318,18 +318,10 @@ function distinct(arr) {
  */
 function createNDimensionalArray(n, size) {
   // throw new Error('Not implemented');
-  const newArr = new Array(size).fill(0); // [ 0, 0, 0 ]
-  const newArr2 = newArr.map(() => newArr); //  [ [ 0, 0, 0 ], [ 0, 0, 0 ], [ 0, 0, 0 ] ]
-  // const newArr3 = newArr2.map(() => newArr); //  [ [ 0, 0, 0 ], [ 0, 0, 0 ], [ 0, 0, 0 ] ]
-
-  const newArr3 = newArr2.map((item) => {
-    if (Array.isArray(item)) {
-      return item.map(() => newArr);
-    }
-    return newArr;
-  });
-
-  return newArr3;
+  if (n === 1) return Array(size).fill(0);
+  return createNDimensionalArray(n - 1, size).map(() =>
+    createNDimensionalArray(n - 1, size)
+  );
 }
 
 /**
