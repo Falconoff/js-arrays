@@ -317,11 +317,16 @@ function distinct(arr) {
  *    createNDimensionalArray(1, 1) => [0]
  */
 function createNDimensionalArray(n, size) {
-  // throw new Error('Not implemented');
-  if (n === 1) return Array(size).fill(0);
-  return createNDimensionalArray(n - 1, size).map(() =>
-    createNDimensionalArray(n - 1, size)
-  );
+  //    ---------- 1 -----------------
+  // if (n === 1) return Array(size).fill(0);
+  // return createNDimensionalArray(n - 1, size).map(() =>
+  //   createNDimensionalArray(n - 1, size)
+  // );
+  //    ---------- 2 -----------------
+  if (n === 1) return new Array(size).fill(0);
+  return new Array(size)
+    .fill(0)
+    .map(() => createNDimensionalArray(n - 1, size));
 }
 
 /**

@@ -26,7 +26,7 @@
 //   return newArr2;
 // }
 
-console.log(createNDimensionalArray(4, 3));
+// console.log(createNDimensionalArray(4, 1));
 
 //
 function createNDimensionalArray(n, size) {
@@ -35,3 +35,10 @@ function createNDimensionalArray(n, size) {
     createNDimensionalArray(n - 1, size)
   );
 }
+
+const recursive = (n, size) => {
+  if (n == 1) return new Array(size).fill(0);
+  return new Array(size).fill(0).map(() => recursive(n - 1, size));
+};
+
+console.log(recursive(2, 2));
