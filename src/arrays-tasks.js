@@ -457,6 +457,10 @@ function getElementByIndices(/* arr, indices */) {
  */
 function getFalsyValuesCount(/* arr */) {
   throw new Error('Not implemented');
+
+  // return arr.reduce((total, currentValue) => {
+  //   return currentValue ? total : (total += 1);
+  // }, 0);
 }
 
 /**

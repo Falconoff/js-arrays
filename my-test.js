@@ -1,44 +1,30 @@
-// function createNDimensionalArray(n, size) {
-//   let newArr = new Array(size).fill(0); // [ 0, 0, 0 ]
-//   let newArr2 = newArr.map(() => newArr); //  [ [ 0, 0, 0 ], [ 0, 0, 0 ], [ 0, 0, 0 ] ]
+const arr = [[[1, 2, 3]]];
 
-//   // newArr2 = newArr2.map((item) => {
-//   //   if (Array.isArray(item)) {
-//   //     return item.map(() => newArr);
-//   //   }
+// console.log(arr[0][0][0]);
 
-//   //   return newArr;
-//   // });
+function getFalsyValuesCount(arr) {
+  // return arr.filter((value) => value);
+  // const initialValue = 0;
+  return arr.reduce((total, currentValue) => {
+    return currentValue ? total : (total += 1);
+  }, 0);
 
-//   function createNextArr(arr, makeNewArr, n) {
-//     arr = arr.map((item) => {
-//       if (n > 1) {
-//         n -= 1;
-//         return (arr = item.map(() => makeNewArr));
-//       }
-
-//       return makeNewArr;
-//     });
-//   }
-
-//   return createNextArr(newArr2, newArr, n);
-
-//   return newArr2;
-// }
-
-// console.log(createNDimensionalArray(4, 1));
-
-//
-function createNDimensionalArray(n, size) {
-  if (n === 1) return Array(size).fill(0);
-  return createNDimensionalArray(n - 1, size).map(() =>
-    createNDimensionalArray(n - 1, size)
-  );
+  // let total = 0;
+  // return arr.reduce((currentValue) => {
+  //   return currentValue ? total : (total += 1);
+  //   // if (currentValue) {
+  //   //   return total;
+  //   // }
+  //   // total += 1;
+  //   // return total;
+  // }, total);
 }
 
-const recursive = (n, size) => {
-  if (n == 1) return new Array(size).fill(0);
-  return new Array(size).fill(0).map(() => recursive(n - 1, size));
-};
-
-console.log(recursive(2, 2));
+console.log(getFalsyValuesCount([]));
+// => 0
+console.log(getFalsyValuesCount([1, '', 3]));
+// => 1
+console.log(getFalsyValuesCount([-1, 'false', null, 0]));
+// => 2
+console.log(getFalsyValuesCount([null, undefined, NaN, false, 0, '']));
+// => 6
